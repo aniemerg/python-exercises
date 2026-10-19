@@ -1,23 +1,25 @@
+r"""
+Paste the exercise description here, including examples and constraints.
+
+
+"""
+
 import unittest
 
 from main import solve
 
 
-class SolveTests(unittest.TestCase):
-    def test_reverses_words(self):
-        self.assertEqual(solve("one two three"), "three two one")
+# Example: adding two numbers. Copy or uncomment this whole class and adapt it.
+# Keep each test method indented inside the class, and each assertion inside its method.
+# class SolveTests(unittest.TestCase):
+#     def test_case_1(self):
+#         self.assertEqual(solve(2, 3), 5)
+#
+#     def test_case_2(self):
+#         self.assertEqual(solve(-1, 1), 0)
 
-    def test_single_word(self):
-        self.assertEqual(solve("hello"), "hello")
 
-    def test_empty_input(self):
-        self.assertEqual(solve(""), "")
-
-    def test_normalizes_whitespace(self):
-        self.assertEqual(solve("  one\t two\nthree  "), "three two one")
-
-    def test_whitespace_only(self):
-        self.assertEqual(solve(" \t\n "), "")
+# Write your test class here. Until you do, unittest reports "Ran 0 tests".
 
 
 if __name__ == "__main__":

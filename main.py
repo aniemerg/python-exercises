@@ -1,11 +1,11 @@
 """Write your exercise solution here."""
 
 
-def solve(text: str) -> str:
-    """Reverse the words in text, separating them with a single space."""
-    return " ".join(reversed(text.split()))
+def solve(*args, **kwargs):
+    # Replace the arguments with the inputs your exercise needs.
+    raise NotImplementedError("Write your tests first, then implement solve.")
 
 
 if __name__ == "__main__":
-    # Change this input to try your solution manually.
-    print(solve("hello world"))
+    # Optional manual run: add your exercise's inputs here.
+    print(solve())

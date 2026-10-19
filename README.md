@@ -1,34 +1,47 @@
 # Python exercises
 
-A small workspace for solving one coding exercise at a time. Requires Python 3;
-there are no dependencies to install.
+A small template for solving one coding exercise at a time, starting with tests.
+Requires Python 3; no dependencies or environment setup needed.
 
-## Run
+## Start an exercise
 
 ```sh
-cd ~/dev6/python-exercises
-python3 main.py          # Try the example input
-python3 -m unittest -v  # Run all tests
+cd ~/dev6
+git clone git@github.com:aniemerg/python-exercises.git exercise-2
+cd exercise-2
 ```
 
-You can also run the tests directly with `python3 test_main.py`.
-If `python --version` reports Python 3 on your system, `python` works too.
+Choose a new folder name for each exercise.
 
 ## Work on an exercise
 
-1. Define the expected behavior in `test_main.py`. Add methods whose names start
-   with `test_`, using `self.assertEqual(solve(input_value), expected_value)`.
-2. Run the tests to see the new test fail.
-3. Write code in `main.py` until the tests pass.
-4. Add edge cases and repeat.
+1. Paste the exercise into the triple-quoted area at the top of `test_main.py`.
+2. Copy or uncomment the entire example test class. Change the inputs and expected
+   outputs to match your exercise, and add methods named `test_...` for more cases.
+   Keep the methods inside the class and the assertions inside their methods.
+3. Run `python3 -m unittest -v`. Confirm your tests are listed and fail because
+   `solve` raises `NotImplementedError`. **"Ran 0 tests" means you haven't enabled
+   any tests yet**, even if the command prints `OK`.
+4. Implement `solve` in `main.py`, replacing `*args, **kwargs` with the arguments
+   your exercise needs, such as `nums, target`.
+5. Run the tests again. Read any failures, update your solution, and repeat until
+   all tests pass. Add edge cases as you go.
 
-The starter exercise reverses the order of words and normalizes whitespace.
-Replace `solve` and its tests for your next exercise. Change the input at the
-bottom of `main.py` for a quick manual run; importing it from tests does not run
-that example.
+Use `self.assertEqual(actual, expected)` for exact results. When the exercise
+allows a list in any order (such as Two Sum indices), use
+`self.assertCountEqual(actual, expected)` instead.
 
-To run a single test:
+## Commands
 
 ```sh
-python3 -m unittest test_main.SolveTests.test_reverses_words -v
+python3 -m unittest -v  # Run all tests
+python3 test_main.py -v  # Same tests, directly
+python3 -m unittest test_main.SolveTests.test_case_1 -v  # Run one test
 ```
+
+Adjust the class and method names in the last command if you renamed them.
+To try inputs manually, edit the `print(solve(...))` call at the bottom of
+`main.py`, then run `python3 main.py`. The initial stub intentionally raises
+`NotImplementedError`; importing it from tests does not run the manual example.
+
+If `python --version` reports Python 3 on your system, `python` works too.
